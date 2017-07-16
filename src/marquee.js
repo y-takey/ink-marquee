@@ -4,7 +4,7 @@ class Marquee extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { pos: 0, chars: "" };
+    this.state = { chars: "" };
     this.updateChars = this.updateChars.bind(this);
   }
 
@@ -19,7 +19,7 @@ class Marquee extends Component {
 
   componentDidMount() {
     this.updateChars();
-    this.timer = setInterval(this.updateChars, this.props.speed);
+    this.startTimer();
   }
 
   componentWillUnmount() {
@@ -27,7 +27,7 @@ class Marquee extends Component {
   }
 
   updateChars() {
-    const { text, width } = this.props;
+    const { text, width, repeat } = this.props;
     const pos = this.state.pos;
     let tmp;
     if (pos < width) {
@@ -38,11 +38,19 @@ class Marquee extends Component {
     const chars = tmp.slice(0, width).padEnd(width, " ");
     this.setState({ chars, pos: pos + 1 });
 
-    if (pos >= width + text.length) this.clearTimer();
+    if (pos >= width + text.length) {
+      this.clearTimer();
+
+      if (repeat) this.startTimer();
+    }
+  }
+
+  startTimer() {
+    this.setState({ pos: 0 });
+    this.timer = setInterval(this.updateChars, this.props.speed);
   }
 
   clearTimer() {
-    console.log("ohgoe");
     clearInterval(this.timer);
   }
 }
