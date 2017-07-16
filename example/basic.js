@@ -1,31 +1,10 @@
-const {h, render, Component, Text} = require('ink');
+const { h, render, Component, Text } = require("ink");
+const Marquee = require("../src/marquee");
 
-class Counter extends Component {
-  constructor() {
-    super();
-
-    this.state = { i: 0 };
- }
-
+class Example extends Component {
   render() {
-    return (
-      <Text green>
-        {this.state.i} tests passed
-      </Text>
-    );
-  }
-
-  componentDidMount() {
-    this.timer = setInterval(() => {
-      this.setState({
-        i: this.state.i + 1
-      });
-    }, 100);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
+    return <Marquee color="red" text="1234567890ABC" width={10} />;
   }
 }
 
-render(<Counter/>);
+render(<Example />);
