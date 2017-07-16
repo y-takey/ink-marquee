@@ -27,7 +27,7 @@ class Marquee extends Component {
   }
 
   updateChars() {
-    const { text, width, repeat } = this.props;
+    const { text, width, repeat, direction } = this.props;
     const pos = this.state.pos;
     let tmp;
     if (pos < width) {
@@ -35,7 +35,8 @@ class Marquee extends Component {
     } else {
       tmp = text.slice(pos - width, width + pos);
     }
-    const chars = tmp.slice(0, width).padEnd(width, " ");
+    tmp = tmp.slice(0, width).padEnd(width, " ");
+    const chars = direction === "ltr" ? tmp.split("").reverse().join("") : tmp;
     this.setState({ chars, pos: pos + 1 });
 
     if (pos >= width + text.length) {

@@ -3,7 +3,7 @@ const Marquee = require("../src/marquee");
 
 class Example extends Component {
   render() {
-    return <Marquee color="red" text="123" width={5} />;
+    return <Marquee color="blue" text="123" width={5} direction="ltr" />;
   }
 }
 
