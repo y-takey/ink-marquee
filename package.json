@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ex": "./node_modules/.bin/babel-node example/basic.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,22 @@
   "bugs": {
     "url": "https://github.com/y-takey/ink-marquee/issues"
   },
-  "homepage": "https://github.com/y-takey/ink-marquee#readme"
+  "homepage": "https://github.com/y-takey/ink-marquee#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "ink": "^0.2.1"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "transform-react-jsx",
+        {
+          "pragma": "h",
+          "useBuiltIns": true
+        }
+      ]
+    ]
+  }
 }
