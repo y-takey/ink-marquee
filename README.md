@@ -30,7 +30,7 @@ text | string | "" | required
 color | string | "green" | "red", "green", "blue"... e.t.c. -> see also [chalk](https://github.com/chalk/chalk)
 direction | string | "rtl" | flow direction. "rtl": right to left, "ltr": left to right.
 speed | number | 500 | flow type. the unit is *millisecond*
-width | number | 80 | flowable area width.
+width | number | window(terminal) width | flowable area width.
 repeat | boolean | true | repeat if flowed
 
 ## Example

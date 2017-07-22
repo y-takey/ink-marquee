@@ -61,7 +61,7 @@ Marquee.defaultProps = {
   color: "green",
   direction: "rtl",
   speed: 500,
-  width: 80,
+  width: process.stdout.columns,
   repeat: true
 };
 
